@@ -77,3 +77,54 @@ Para minimizar Merges
 - Commits com pouco conteúdo
 - Ferramentas gráficas para merge: diff3, Meld ou P4Merge. Em MacOSX FileMerge 
 
+-----------------------------------------------------------------------------------
+-- Trabalhando com múltiplas branches
+git checkout -b desenvolvimento (Cria uma nova branch local já setando ela para trabalho)
+# Faz todos os commits necessários, faz um pull, depois disso traz os commits para a branch MASTER
+git checkout master
+git pull
+
+-- Trazer os commits da Branch para a master
+git merge + nome da branch
+git merge desenvolvimento
+
+-- Atualiza uma Branch com base em outra
+git rebase + origem + destino
+git rebase master desenvolvimento
+git rebase --continue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
