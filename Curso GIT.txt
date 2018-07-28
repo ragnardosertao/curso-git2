@@ -18,7 +18,10 @@ git whatchanged -p (indica quais alterações foram feitas)
 Conceito:
 Cria-se as Branches, faz as alteracções e essas só são visiveis nas Branches que foram feitas;
 Exemplo: Alterações feitas na Branch MASTER são migradas para a branch DESING. O que for feito em DESING não será mostrado em MASTER
-
+Permite vários desenvolvedores trabalharem no mesmo código e depois agregar ao principal.
+Permite remover o código antes que ele seja incorporado ao código principal.
+A instabilidade de uma funcionalidade em andamento não afeta os outros desenvolvedores.
+Como cada branch é um trecho de código isolado, o código do desenvolvedor A incompleto e causando erros não afetará o trabalho do desenvolvedor B, pois o código da branch A não será propagado para a branch B.
 
 --Trabalhando com branches:
 git branch + nome do branch
@@ -27,11 +30,12 @@ git branch design
 -- Listar todas branches:
 git branch
 git branch -r (Lista as branchs remotas)
+git branch -a (Lista tudo)
 
 -- Alterar o projeto numa outra branch
 git checkout + nome da branch de destino
 git checkout design
-Switched to branch 'design'
+PS: git checkout -b + nomedaBranche (Cria a Branche e inicia por ela) 
 
 -- Enviando as alterações da nova Branch para o GitHub
 git push origin design
@@ -41,6 +45,35 @@ git push -u origin design (Define branch local correspondente a remota)
 git pull origin design
 git push origin design
 
---Copiar branches remotas para máquina local
+--Copiar branches remotas para máquina local (Caso um user esteja sincronizando e não tenha as Branches)
 git branch -t + nomelocal + origin/nomeremoto
 git branch -t design origin/design
+
+-- Deletar uma Branch
+git branch -d
+git branch -D (Força deletar, caso esteja sincronizado)
+# Se for remota
+git push -d origin design
+git push origin :design
+
+-- Saber se foram criadas branches novas no repositorio remoto
+git fetch origin
+
+-----------------------------------------------------------------------------------
+--Merge nos códigos--
+Quando se tem várias pessoas trabalhando na mesma página mas alterando trechos diferentes:
+- O primeiro que fizer PUSH no github estará sincronizado
+- Os demais primeiro precisam fazer PULL para baixar as alterações e depois fazem o PUSH
+- Após isso, o GITHUB faz o merge de todos os trechos e atualiza.
+
+Mas o que acontece se ambos os usuários desejam alterar a mesma parte do conteúdo?
+- O Github informa que há um "Conflito"
+- Será preciso fazer um MERGE manualmente.
+- Abrir o arquivo, deixar somente o trecho que vai ser usado
+- Depois, git add + nome do arquivo, git commit e git push
+
+Para minimizar Merges
+- Sincronização (pull) frequente do repositório remoto
+- Commits com pouco conteúdo
+- Ferramentas gráficas para merge: diff3, Meld ou P4Merge. Em MacOSX FileMerge 
+
