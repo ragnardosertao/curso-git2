@@ -12,4 +12,35 @@ git log -p
 git whatchanged (indica quais arquivos foram alterados)
 git whatchanged -p (indica quais alterações foram feitas)
 
--- No github, para add novos usuarios basta informar o ID.
+-- No github, para add novos usuarios para contribuir, basta informar o ID.
+
+------------------------------------------------------------------------------------------------
+Conceito:
+Cria-se as Branches, faz as alteracções e essas só são visiveis nas Branches que foram feitas;
+Exemplo: Alterações feitas na Branch MASTER são migradas para a branch DESING. O que for feito em DESING não será mostrado em MASTER
+
+
+--Trabalhando com branches:
+git branch + nome do branch
+git branch design
+
+-- Listar todas branches:
+git branch
+git branch -r (Lista as branchs remotas)
+
+-- Alterar o projeto numa outra branch
+git checkout + nome da branch de destino
+git checkout design
+Switched to branch 'design'
+
+-- Enviando as alterações da nova Branch para o GitHub
+git push origin design
+git push -u origin design (Define branch local correspondente a remota)
+
+-- Para sincronizar a Branch
+git pull origin design
+git push origin design
+
+--Copiar branches remotas para máquina local
+git branch -t + nomelocal + origin/nomeremoto
+git branch -t design origin/design
