@@ -1,11 +1,15 @@
 --Envio dos commits locais para o repositório
 # O repositório remoto será o "origin" e a branch será a "master",
-git push origin master
+git push origin master 
+git push -u origin master  (Ela atrela a branch remota à local)
 
 -- Sincronização com as novas alterações do repositório
 git pull origin master
 
 -- Visualização de log de commits
 git log
+git log -p
 git whatchanged (indica quais arquivos foram alterados)
 git whatchanged -p (indica quais alterações foram feitas)
+
+-- No github, para add novos usuarios basta informar o ID.
