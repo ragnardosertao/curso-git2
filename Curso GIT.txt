@@ -92,10 +92,40 @@ git merge desenvolvimento
 git rebase + origem + destino
 git rebase master desenvolvimento
 git rebase --continue
+-----------------------------------------------------------------------------------
+-- Controle avançado de alterações
+-Descartando alterações no Working Directory (Antes de git add)
+git checkout proposta_1.html
+git checkout master proposta_1.html
 
+-- Descartando alterações no Index: (Depois de git add)
+git reset HEAD proposta_1.html
+e depois
+git checkout proposta_1.html
 
+# variações do comando
+git reset --soft
+git reset --hard
+git reset 
 
+-- Descartando commits indesejados
+git log (Veja o Hash do ultimo commit)
+git reset b6c7cc8e3fea9b255b5845e1114588206679f609 (Descarta o ultimo commit e volta par ao commit do Hash indicado)
 
+-- Guardando alterações para mais tarde: git stash
+git stash (Guarda)
+git stash pop (Recupera)
+git stash list (Ver os registros guardados)
+
+-- Desfazendo commits antigos
+git revert -n [hash_do_commit] (Reverte as alterações do commit)
+
+-- Buscando por bugs em muitos commits
+git bisect start
+git bisect bad HEAD
+git bisect good 02bfc44
+git bisect bad
+git bisect good
 
 
 
