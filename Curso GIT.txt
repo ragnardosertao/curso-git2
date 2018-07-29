@@ -132,26 +132,88 @@ git bisect bad HEAD
 git bisect good 02bfc44
 git bisect bad
 git bisect good
+-----------------------------------------------------------------------------------
+--Contribuição com opensource, técnicas avançadas e produtividade com o Git
+fork = Cópia do projeto
+Pull Request = Contribuir com o projeto original utilizando nossos commits
+--Rastrear alterações no repositório original em nosso novo fork. 
+git remote add original [caminho_do_repositorio_remoto]
+EX: git remote add original git://github.com/mmsoaresgit/projeto.git
 
+-- Carregar alterações existentes no repositório
+git fetch [repositorio]
+git fetch original (download das alterações mas não aplica)
 
+-- Para aplicar as alterações
+git merge original/master
 
+-- Como aplicar o pull request no nosso projeto
+- Toda pull request tem uma url padrão
+https://github.com/[dono_do_projeto]/[projeto]/pull/[id_do_pull_request]
 
+1- Fazer o fork no github
+2- Fazer o clone para PC (Git Clone)
+3- Entrar na pasta do projeto
+4- Mudar branch para desenvolvimento (git checkout desenvolvimento)
+5- Fazer as alteracoes desejadas
+3- Adicionar as paginas  (git add)
+4- Fazer o commit (git commit -m '')
+5- Voltar para master (git checkout master)
+5- Trazer os commits da Branch desenv para a master (git merge desenvolvimento)
+6- Fazer a atualização das branches (git rebase master desenvolvimento)
+6- Solicitar o pull request no github e aguardar aprovação.
 
+PS: Uma outra possibilidade é utilizar o botão "Merge pull request" existente na tela do pull request
+PS: Funnção watch no Github permite seguir um repositório e acompanhar seu progresso.
 
+-- Redução dos comandos com Alias
+È possivel criar atalhos (Alias) para os comandos no GIT, basta adicionar os comandos no arquivo .gitconfig
+EX:
+[alias]
+st = status
+ci = commit
+br = branch
+co = checkout 
+df = diff
 
+- Outra possibildade é ter vários comandos em apenas um. 
+sincroniza nossa branch desenvolvimento com o repositório remoto, faz o rebase e o merge e depois realiza o push
+[alias]
+envia   = !git checkout master && git pull && git checkout desenvolvimento && git rebase master && git checkout master && git merge desenvolvimento && git push
+publica = !git checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git push
 
+git checkout master: altera o local de trabalho para a branch master
+git pull: atualiza o histórico da branch master
+git checkout dev: altera o local de trabalho para a branch dev
+git rebase master: atualiza o HEAD da branch dev para receber as alterações da branch master
+git checkout master: altera o local de trabalho novamente para a branch master
+git merge dev: mescla as alterações da branch dev na master
+git push: envia suas alterações para o repositório remoto
 
+-- Adicionando cores na saída do console
+Basta adicionar os comandos no arquivo .gitconfig
+[color]
+diff = auto
 
+-- Visualizações de Log
+Definir a quantidade de informações exibidas no log 
+--pretty + 
+oneline (Não mostra o nome do autor)
+short (Não mostra data)
+medium
+full (Mostra o autor do commit e o do commit original)
+fuller
+email
+raw
+git log --pretty=oneline
 
-
-
-
-
-
-
-
-
-
+- Usando formato próprio de LOG
+--pretty
+%an = nome do autor
+%ad = data e hora do commit 
+%s = mensagem de commit
+EX: git log --pretty='%an realizou commit em %ad: %s'
+git log --pretty='%an realizou commit em %ad: %s' --graph (Será exibido gráfico na tela)
 
 
 
