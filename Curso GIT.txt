@@ -223,6 +223,11 @@ Serve para trazer os commits desejados de uma branch para outra
 git cherry-pick 4 (Numero do commit)
 git cherry-pick 19f0bb7d8b4be8ecd687b48fca301b71b95eab41 (Numero do Hash)
 
+-----------------------------------------------------------------------------------
+--Git através de interfaces visuais
+Gitx, para o Mac em http://gitx.frim.nl/
+TortoiseGit para Windows disponível em http://code.google.com/p/tortoisegit/
+Git-cola http://git-cola.github.com/downloads.html
 
 
 
