@@ -112,10 +112,16 @@ git reset
 git log (Veja o Hash do ultimo commit)
 git reset b6c7cc8e3fea9b255b5845e1114588206679f609 (Descarta o ultimo commit e volta par ao commit do Hash indicado)
 
+-- Descartar alterações que estão no último commit
+git reset --hard HEAD~1
+
 -- Guardando alterações para mais tarde: git stash
 git stash (Guarda)
 git stash pop (Recupera)
 git stash list (Ver os registros guardados)
+
+-- Recuperar o último estado salvo sem removê-lo da pilha de alterações?
+git stash apply
 
 -- Desfazendo commits antigos
 git revert -n [hash_do_commit] (Reverte as alterações do commit)
@@ -126,8 +132,6 @@ git bisect bad HEAD
 git bisect good 02bfc44
 git bisect bad
 git bisect good
-
-
 
 
 
