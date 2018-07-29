@@ -182,6 +182,8 @@ sincroniza nossa branch desenvolvimento com o repositório remoto, faz o rebase 
 envia   = !git checkout master && git pull && git checkout desenvolvimento && git rebase master && git checkout master && git merge desenvolvimento && git push
 publica_design = !git checkout master && git pull && git checkout design && git rebase master && git checkout master && git merge design && git push
 
+PS: ! permite usar qualquer comando válido
+
 git checkout master: altera o local de trabalho para a branch master
 git pull: atualiza o histórico da branch master
 git checkout dev: altera o local de trabalho para a branch dev
@@ -215,7 +217,11 @@ git log --pretty=oneline
 EX: git log --pretty='%an realizou commit em %ad: %s'
 git log --pretty='%an realizou commit em %ad: %s' --graph (Será exibido gráfico na tela)
 
-
+-----------------------------------------------------------------------------------
+-- Fazendo merges avançados com Cherry Pick
+Serve para trazer os commits desejados de uma branch para outra
+git cherry-pick 4 (Numero do commit)
+git cherry-pick 19f0bb7d8b4be8ecd687b48fca301b71b95eab41 (Numero do Hash)
 
 
 
