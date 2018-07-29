@@ -180,7 +180,7 @@ df = diff
 sincroniza nossa branch desenvolvimento com o repositório remoto, faz o rebase e o merge e depois realiza o push
 [alias]
 envia   = !git checkout master && git pull && git checkout desenvolvimento && git rebase master && git checkout master && git merge desenvolvimento && git push
-publica = !git checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git push
+publica_design = !git checkout master && git pull && git checkout design && git rebase master && git checkout master && git merge design && git push
 
 git checkout master: altera o local de trabalho para a branch master
 git pull: atualiza o histórico da branch master
